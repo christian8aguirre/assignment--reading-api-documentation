@@ -2,7 +2,7 @@
 // ##### National Highway Transit Safety Administration
 // https://vpic.nhtsa.dot.gov/api/
 
-
+//========================================================================
 // 1. How many types of Chevrolet models are registered with the NHTSA?
 
 var answerNational1 = document.querySelector('#nhtsa-1');
@@ -14,7 +14,7 @@ request.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/chevrolet?
     p.textContent = chevroletModels.length;
     answerNational1.appendChild(p);
   })
-
+//========================================================================
 // 2. What are the vehicle types that Nissan has?
   var answerNational2 = document.querySelector('#nhtsa-2');
   request.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMake/nissan?format=json')
@@ -28,11 +28,11 @@ request.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/chevrolet?
       });
       
     })
-
+//========================================================================
 // 3. What are the types of models that exist for Toyota trucks in 2017?
 
 var answerNational3 = document.querySelector('#nhtsa-3');
-request.get('https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/toyota/modelyear/2017?format=json')
+request.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/toyota/modelyear/2017/vehicletype/truck?format=json')
   .then(function(response) {
     answerNational3.textContent = "'Criteria': " + response.body.SearchCriteria
     var toyotaModels = response.body.Results;
